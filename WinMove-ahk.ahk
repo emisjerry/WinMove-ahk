@@ -47,6 +47,8 @@ if ErrorLevel
       execute := %_sProgram%Exec
       if (execute != "") {
         Run, %execute%
+        sleep, 1500
+        WinGetTitle, _sTitle, %_sFind%
       } else {
         continue
       }
@@ -70,7 +72,6 @@ if ErrorLevel
 
     ; Saving the window's title to be moved to virtual desktop 2
     if (desktop == "2") {
-      msgbox desktop title 0 =%_sTitle%
       _iVirtualDesktop2Count++
       _aVirtualDesktop2.Push(_sTitle)
     }
@@ -79,13 +80,11 @@ if ErrorLevel
   ; Moving window to virtual desktop 2
   Loop % _iVirtualDesktop2Count {
     _sTitle := _aVirtualDesktop2[A_Index]
-    msgbox desktop title=%_sTitle%
     virtualDesktopMove(_sTitle)
   }
 return  ; main
 
 virtualDesktopMove(sTitle) {
-  MsgBox move virtual desktop=%sTitle%
   WinSet, ExStyle, ^0x80, %sTitle%
   Send {LWin down}{Ctrl down}{Right}{Ctrl up}{LWin up}
   sleep, 50
