@@ -54,3 +54,19 @@ Height=0
 Monitor=1
 Desktop=1
 ```
+
+## Entries in a section
+
+Entry keys have the following settings:
+
+Key | Description | Sample value
+--- | --- | ---
+Find | How to find the application, using ahk_class or ahk_exe | ahk_class CabinetWClass or ahk_exe Explorer.EXE
+Title | The second condition to match the application | c:\project\SpecialOne
+X | Left position | 200
+Y | Top position | 150
+Width | Width | 1920
+Height | Height | 1000
+Monitor | Display on which monitor | 1
+Desktop | Display on which desktop | 1
+  

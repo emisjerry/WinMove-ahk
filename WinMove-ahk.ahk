@@ -1,4 +1,11 @@
-﻿#SingleInstance, Force
+﻿/*
+Author: Jerry http://jdev.tw/blog
+GitHub: https://github.com/emisjerry/WinMove-ahk
+
+v1.0.0 2021/03/06 The initial sVersion.
+v1.0.1 2021/03/08 Add Title to define the second condition to find window.
+*/
+#SingleInstance, Force
 ;@Ahk2Exe-SetMainIcon jdev_tw.ico
 
 #Include %A_ScriptDir%\read-ini.ahk
@@ -9,7 +16,7 @@ Key1=Value1
 will create dynamic variable Section1Key1, its value is Value1.
 */
 
-sVersion := "v1.0.0"
+sVersion := "v1.0.1"
 FileEncoding, UTF-8
 _iCurrentLanguage := A_Language
 ;; testing begin
@@ -50,6 +57,13 @@ if ErrorLevel
         sleep, 1500
         WinGetTitle, _sTitle, %_sFind%
       } else {
+        continue
+      }
+    }
+    title = %_sProgram%Title
+    if (title != "") { ;; additional condition
+      _iPos := InStr(_sTitle, title)
+      if (_iPos <= 0) {
         continue
       }
     }
