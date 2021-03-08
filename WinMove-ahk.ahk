@@ -80,7 +80,7 @@ if ErrorLevel
     }
     desktop := %_sProgram%Desktop
     monitor := %_sProgram%Monitor
-    MsgBox Before move Program=%_sTitle%, x=%x%, y=%y%, w=%w%, h=%h%, desktop=%desktop%, monitor=%monitor%
+    ;;MsgBox Before move Program=%_sTitle%, x=%x%, y=%y%, w=%w%, h=%h%, desktop=%desktop%, monitor=%monitor%
     WinMove, %_sTitle%,, %x%, %y%, %w%, %h%
     ;WinGetPos,_iLeft, _iTop, _iWidth, _iHeight, %_sTitle%
     ;MsgBox title=%_sTitle%, Left=%_iLeft%, top=%_iTop%, width=%_iWidth%, height=%_iHeight%
